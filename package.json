@@ -14,10 +14,10 @@
   "dependencies": {
     "asyncawait": "^1.0.6",
     "bluebird": "^3.5.1",
+    "debug": "^3.1.0",
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "debug": "^3.1.0",
     "mocha": "^4.0.1"
   }
 }
