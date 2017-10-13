@@ -2,13 +2,15 @@
 
 exports = module.exports = function() {
 
-    return new class {
+    class Parachute {
 
-        start() {
-            console.log('Car is starting.');
+        deploy() {
+            console.log('Parachute has been deployed.');
         }
 
-    };
+    }
+
+    return Parachute;
 
 };
 

@@ -2,11 +2,9 @@
 
 exports = module.exports = function(bar) {
 
-    return {
-        'herp': function() {
-            console.log('herp');
-            bar();
-        }
+    return () => {
+        console.log(`I am the 'foo' service.`);
+        bar();
     };
 
 };

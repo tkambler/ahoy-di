@@ -6,7 +6,9 @@ A flexible dependency injection (DI) container for Node
 
 Given a collection of services, Ahoy-DI will automatically load and connect them together in the appropriate order based on their specified dependencies. When a service that returns a promise is encountered, the setup process will wait until the promise is resolved before continuing.
 
-## What is a service?
+If you're familiar with the dependency injection system used by [AngularJS](https://angularjs.org/), you'll feel right at home.
+
+## Services
 
 First, let's look at a simple service that has no dependencies. In this example, our service is declared to be a singleton. As a result, all services that rely upon this service will share the same instance.
 
@@ -133,7 +135,39 @@ const container = new Ahoy({
     ]
 });
 
-container.addService('car', require('./misc/car'));
+container.service('car', require('./misc/car'));
+
+container.load('foo')
+    .then((foo) => {
+        foo.herp();
+    })
+    .catch((err) => {
+        console.log(err);
+        process.exit(1);
+    });
+```
+
+## Constants
+
+In addition to defining services, you can also define constants. The following example illustrates this concept.
+
+```
+const Ahoy = require('ahoy-di');
+const path = require('path');
+
+const container = new Ahoy({
+    'services': path.resolve(__dirname, 'services')
+});
+
+/**
+ * Each of your services can now access the `settings` object we have defined here
+ * in the same way that they would access any other service.
+ */
+container.constant('settings', {
+    'make': 'Jeep',
+    'model': 'Grand Cherokee',
+    'year': '2017'
+});
 
 container.load('foo')
     .then((foo) => {
@@ -152,3 +186,4 @@ container.load('foo')
 ## To-Do
 
 - Unit Tests
+- Document "dynamic fetching" (see example #4)

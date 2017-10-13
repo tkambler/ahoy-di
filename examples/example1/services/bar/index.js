@@ -3,7 +3,7 @@
 exports = module.exports = function() {
 
     return () => {
-        console.log('pong');
+        console.log(`I am the 'bar' service.`);
     };
 
 };
