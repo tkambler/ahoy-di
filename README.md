@@ -34,10 +34,10 @@ Next, let's pair two services together. In this example, we have created a `foo`
 ```
 exports = module.exports = function(bar) {
 
-	return () {
-		console.log('Foo.');
-		bar();
-	};
+    return () => {
+        console.log('Foo.');
+        bar();
+    };
 
 
 };
@@ -51,9 +51,9 @@ exports['@require'] = ['bar'];
 ```
 exports = module.exports = function() {
 
-	return () {
-		console.log('Bar.');
-	};
+    return () => {
+        console.log('Bar.');
+    };
 
 };
 
@@ -77,7 +77,7 @@ In this example, three services a loaded - `foo`, `bar`, and `beep`.
  *     bar/index.js
  *     beep.js
  */
- 
+
 const Ahoy = require('ahoy-di');
 const path = require('path');
 
