@@ -187,3 +187,4 @@ container.load('foo')
 
 - Unit Tests
 - Document "dynamic fetching" (see example #4)
+- Document 'id' and 'extendRequire' options
