@@ -1,10 +1,10 @@
 {
   "name": "ahoy-di",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A flexible dependency injection (DI) container for Node",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test"
   },
   "author": "Tim Ambler <tkambler@gmail.com>",
   "license": "ISC",
