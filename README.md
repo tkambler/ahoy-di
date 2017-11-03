@@ -29,7 +29,7 @@ exports['@require'] = [];
 
 Next, let's pair two services together. In this example, we have created a `foo` service that relies upon the `bar` service.
 
-**services/foo.bar**
+**services/foo.js**
 
 ```
 exports = module.exports = function(bar) {
