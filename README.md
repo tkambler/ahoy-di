@@ -39,7 +39,6 @@ exports = module.exports = function(bar) {
         bar();
     };
 
-
 };
 
 exports['@singleton'] = true;
