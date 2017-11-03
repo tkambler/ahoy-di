@@ -244,10 +244,6 @@ container.load('foo')
     });
 ```
 
-## Requirements
-
-- Node.js >= v8.6.0
-
 ## To-Do
 
 - Unit Tests
