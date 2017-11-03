@@ -242,7 +242,3 @@ container.load('foo')
         process.exit(1);
     });
 ```
-
-## To-Do
-
-- Unit Tests
