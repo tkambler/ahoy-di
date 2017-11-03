@@ -1,6 +1,6 @@
 {
   "name": "ahoy-di",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "description": "A flexible dependency injection (DI) container for Node",
   "main": "index.js",
   "scripts": {
@@ -8,11 +8,7 @@
   },
   "author": "Tim Ambler <tkambler@gmail.com>",
   "license": "ISC",
-  "engines": {
-    "node": ">=8.6.0"
-  },
   "dependencies": {
-    "asyncawait": "^1.0.6",
     "bluebird": "^3.5.1",
     "debug": "^3.1.0",
     "lodash": "^4.17.4"
