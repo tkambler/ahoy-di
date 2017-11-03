@@ -12,12 +12,19 @@ const container = new Container({
     'load': ['herp']
 });
 
+container.constant('settings', {
+    'vehicles': ['Jeep', 'BMW', 'Porsche']
+});
+
 container.load('foo')
     .then((foo) => {
 
         foo();
 
         require('container/herp')();
+
+        const settings = require('container/settings');
+        console.log('settings', settings);
 
     })
     .catch((err) => {

@@ -65,7 +65,7 @@ exports['@require'] = [];
 
 The simplest method by which Ahoy-DI can be configured is to point it at a directory containing your application's services. When a service exists within a directory, the name of that directory will determine the service's name. When a service exists as a standalone file, the base name of the file will determine the service's name.
 
-In this example, three services a loaded - `foo`, `bar`, and `beep`.
+In this example, three services are loaded - `foo`, `bar`, and `beep`.
 
 ```
 /**
@@ -179,6 +179,71 @@ container.load('foo')
     });
 ```
 
+## Dynamic Fetching
+
+After your dependency injection container has been configured and initialized, dynamic fetching allows modules that are external to your container to obtain references to the services that exist within it.
+
+To enable dynamic fetching, assign a unique ID to your container instance via the `id` property and set the `extendRequire` property to `true`. Once your container has initialized, you can then obtain references to your services via Node's built-in `require()` method, as shown in the following example. In this instance, assigning an ID of `container` allows us to reference our services via `require('container/[service-name-here]')`.
+
+```
+# See examples/example5
+const Ahoy = require('ahoy-di');
+const path = require('path');
+
+const container = new Ahoy({
+    'id': 'container',
+    'extendRequire': true,
+    'services': [
+        path.resolve(__dirname, 'services')
+    ]
+});
+
+container.load('foo')
+    .then((foo) => {
+        foo();
+		require('container/bar')();
+    })
+    .catch((err) => {
+        console.log(err);
+        process.exit(1);
+    });
+```
+
+## Forced Loading
+
+By passing an array of service names to our container via the `load` property, we can specify that those services _must_ be initialized, even if they are not referenced by any other services within our container.
+
+Use cases:
+
+- A stand-alone service that performs important functionality, but for which no dependent services exist.
+- A service for which no dependent services (within our container) exist, but for which external modules will want to obtain a reference after our container has been initialized.
+
+
+```
+# See examples/example6
+const Ahoy = require('ahoy-di');
+const path = require('path');
+
+const container = new Ahoy({
+    'id': 'container',
+    'extendRequire': true,
+    'services': [
+        path.resolve(__dirname, 'services')
+    ],
+    'load': ['herp']
+});
+
+container.load('foo')
+    .then((foo) => {
+        foo();
+		require('container/herp');
+    })
+    .catch((err) => {
+        console.log(err);
+        process.exit(1);
+    });
+```
+
 ## Requirements
 
 - Node.js >= v8.6.0
@@ -186,5 +251,3 @@ container.load('foo')
 ## To-Do
 
 - Unit Tests
-- Document "dynamic fetching" (see example #4)
-- Document 'id', 'extendRequire', and 'load' options
