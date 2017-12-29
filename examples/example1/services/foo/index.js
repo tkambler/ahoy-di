@@ -1,13 +1,14 @@
 'use strict';
 
-exports = module.exports = function(bar) {
+exports = module.exports = function(bar, herp) {
 
     return () => {
         console.log(`I am the 'foo' service.`);
         bar();
+        herp();
     };
 
 };
 
 exports['@singleton'] = true;
-exports['@require'] = ['bar'];
+exports['@require'] = ['bar', 'herp'];
