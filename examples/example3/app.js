@@ -17,6 +17,8 @@ container.constant('settings', {
     }
 });
 
+container.constant('ENABLED', false);
+
 container.service('parachute', require('./misc/parachute'));
 
 container.load('foo')

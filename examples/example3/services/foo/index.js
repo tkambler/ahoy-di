@@ -1,6 +1,8 @@
 'use strict';
 
-exports = module.exports = function(car) {
+exports = module.exports = function(car, ENABLED) {
+
+    console.log('ENABLED?', ENABLED);
 
     return () => {
         console.log(`I am the 'foo' service.`);
@@ -10,4 +12,4 @@ exports = module.exports = function(car) {
 };
 
 exports['@singleton'] = true;
-exports['@require'] = ['car'];
+exports['@require'] = ['car', 'ENABLED'];
