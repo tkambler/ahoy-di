@@ -16,14 +16,6 @@ container.constant('settings', {
     'vehicles': ['Jeep', 'BMW', 'Porsche']
 });
 
-function animals() {
-    return ['cats', 'dogs'];
-}
-animals['@singleton'] = true;
-animals['@require'] = [];
-
-container.service('animals', animals);
-
 container.load('foo')
     .then((foo) => {
 

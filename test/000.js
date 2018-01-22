@@ -113,7 +113,7 @@ describe('Test Suite', function() {
     it('Should support forced loading of services', function() {
 
         const container = new Container({
-            'id': 'container',
+            'id': 'container2',
             'extendRequire': true,
             'services': [
                 path.resolve(__dirname, 'services')
@@ -124,7 +124,7 @@ describe('Test Suite', function() {
         return container.load('foo')
             .then((foo) => {
                 assert(foo() === 'bar');
-                const herp = require('container/herp');
+                const herp = require('container2/herp');
                 assert(herp() === 'derp');
             });
 
