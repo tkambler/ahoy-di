@@ -14,7 +14,7 @@ exports = module.exports = function() {
                 'level': 'info',
                 'message': message,
                 'data': data
-            }));
+            }, null, 4));
             
         }
         

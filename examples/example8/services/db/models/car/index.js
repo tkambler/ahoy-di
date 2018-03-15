@@ -2,13 +2,19 @@
 
 const path = require('path');
 
-exports = module.exports = function() {
+exports = module.exports = function(log) {
 
     class Car {
         
         constructor() {
             
-            console.log('Car is constructing.');
+            log.info('Car is constructing.');
+            
+        }
+        
+        start() {
+            
+            log.info('Car is starting.');
             
         }
         
@@ -19,4 +25,4 @@ exports = module.exports = function() {
 };
 
 exports['@singleton'] = true;
-exports['@require'] = [];
+exports['@require'] = ['root.log'];

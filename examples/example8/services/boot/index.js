@@ -1,14 +1,18 @@
 'use strict';
 
-exports = module.exports = function(db, log) {
+exports = module.exports = function(db, log, Car) {
 
     class Boot {
         
         constructor() {
             
+            const car = new Car();
+            car.start();
+            
             log.info(`I am the 'Boot' class.`, {
                 'db': db,
-                'log': log
+                'log': log,
+                'car': car
             });
 
         }
@@ -20,4 +24,4 @@ exports = module.exports = function(db, log) {
 };
 
 exports['@singleton'] = true;
-exports['@require'] = ['db', 'log'];
+exports['@require'] = ['db', 'log', 'db.car'];
