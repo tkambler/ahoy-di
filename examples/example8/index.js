@@ -12,6 +12,8 @@ const container = new Container({
     ]
 });
 
+container.constant('BEEP', false);
+
 container.load('boot')
     .catch((err) => {
         console.log(err);

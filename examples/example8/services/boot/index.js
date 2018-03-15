@@ -1,6 +1,8 @@
 'use strict';
 
-exports = module.exports = function(db, log, Car) {
+exports = module.exports = function(db, log, Car, BEEP) {
+    
+    log.info('Beep', BEEP);
 
     class Boot {
         
@@ -27,4 +29,4 @@ exports = module.exports = function(db, log, Car) {
 };
 
 exports['@singleton'] = true;
-exports['@require'] = ['db', 'log', 'db.car'];
+exports['@require'] = ['db', 'log', 'db.car', 'BEEP'];
