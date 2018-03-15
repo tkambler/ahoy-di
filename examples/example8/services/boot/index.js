@@ -14,6 +14,9 @@ exports = module.exports = function(db, log, Car) {
                 'log': log,
                 'car': car
             });
+            
+            const Dog = require('containers/db/dog');
+            console.log('Dog', Dog);
 
         }
         
