@@ -1,6 +1,6 @@
 {
   "name": "ahoy-di",
-  "version": "2.0.0-alpha.2",
+  "version": "3.0.0",
   "description": "A flexible dependency injection (DI) container for Node",
   "main": "index.js",
   "scripts": {
